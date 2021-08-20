@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SalesMVC.Data;
 
 namespace SalesMVC.Migrations
 {
     [DbContext(typeof(SalesMVCContext))]
-    partial class SalesMVCContextModelSnapshot : ModelSnapshot
+    [Migration("20210819210227_OtherMigration")]
+    partial class OtherMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,7 +31,7 @@ namespace SalesMVC.Migrations
                     b.ToTable("Department");
                 });
 
-            modelBuilder.Entity("SalesMVC.Models.SalesRecord", b =>
+            modelBuilder.Entity("SalesMVC.Models.SaleRecord", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -46,7 +48,7 @@ namespace SalesMVC.Migrations
 
                     b.HasIndex("SellerId");
 
-                    b.ToTable("SalesRecord");
+                    b.ToTable("SaleRecord");
                 });
 
             modelBuilder.Entity("SalesMVC.Models.Seller", b =>
@@ -71,7 +73,7 @@ namespace SalesMVC.Migrations
                     b.ToTable("Seller");
                 });
 
-            modelBuilder.Entity("SalesMVC.Models.SalesRecord", b =>
+            modelBuilder.Entity("SalesMVC.Models.SaleRecord", b =>
                 {
                     b.HasOne("SalesMVC.Models.Seller", "Seller")
                         .WithMany("SaleRecord")
