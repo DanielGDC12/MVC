@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SalesMVC.Data;
+using SalesMVC.Services;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -36,12 +37,13 @@ namespace SalesMVC
                     options.UseMySql(Configuration.GetConnectionString("SalesMVCContext"), builder =>
                                 builder.MigrationsAssembly("SalesMVC")));
 
-            services.AddScoped<SeedingService>();
+            services.AddScoped<SeedingServices>();
+            services.AddScoped<SellersServices>();
            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, SeedingService seed)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, SeedingServices seed)
         {
             if (env.IsDevelopment())
             {
