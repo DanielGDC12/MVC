@@ -17,10 +17,10 @@ namespace SalesMVC.Models
 
     }
 
-    public Department(int id, string deptName)
+    public Department(int id, string name)
     {
         Id = id;
-        DeptName = deptName;
+            DeptName = name;
     }
 
         public void AddSeller(Seller seller) {

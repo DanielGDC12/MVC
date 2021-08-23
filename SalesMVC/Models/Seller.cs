@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SalesMVC.Models.ViewModel;
 
 namespace SalesMVC.Models
 {
@@ -14,7 +15,7 @@ namespace SalesMVC.Models
         public double BaseSalary { get; set; }
         public Department Department { get; set; }
 
-        public int DepartmentID { get; set; }
+        public int DepartmentId { get; set; }
         public ICollection<SaleRecord> SaleRecord { get; set; } = new List<SaleRecord>();
 
         public Seller()
@@ -30,6 +31,7 @@ namespace SalesMVC.Models
             BirthDate = birthDate;
             BaseSalary = baseSalary;
             Department = department;
+           
         }
 
         public void AddSales(SaleRecord sr)
